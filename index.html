@@ -29,7 +29,7 @@
       }
     </style>
     <style>
-      #map { height: 180px; }
+      #map { width: 100%; height: 200px; }
     </style>
     
     <!-- Custom styles for this template -->
@@ -53,7 +53,7 @@
     <!-- <p>Use <a href="../examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p> -->
     <div id="map"></div>
     <script>
-      var map = L.map('map').setView([50.86383, 5.09514], 13);
+      var map = L.map('map').setView([50.86383, 5.09514], 14);
 
       var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ybWljaGVscyIsImEiOiJja3o5aWc5NDUxc29yMnByeGVxeHEzbDB5In0.Bugq2Lrn7YXyLby-TnuhNA', {
         maxZoom: 18,
