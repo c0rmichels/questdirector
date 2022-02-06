@@ -231,6 +231,9 @@
   var circle = addCircle(0);
 
   function addCircle(index) {
+    map.panTo(angels[index].latlong, {
+      animate: true
+    });
     return L.circle(angels[index].latlong, {
       id: index,
       color: 'red',
