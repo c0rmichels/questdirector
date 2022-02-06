@@ -275,7 +275,7 @@
       circle = addCircle(circleIndex + prevnext);
       if (circleIndex + prevnext == 0) {
         prevbtn.classList.add("disabled");
-      } else if (circleIndex + prevnext - 1 == angels.length) {
+      } else if (circleIndex + prevnext == angels.length - 1) {
         nextbtn.classList.add("disabled");
       } else {
         prevbtn.classList.remove("disabled");
