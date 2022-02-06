@@ -228,12 +228,17 @@
     {"latlong": [50.86844, 5.09093], "radius": 20, "desc": "Brug"}
   ]
 
-  var circle = L.circle(angels[0].latlong, {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: angels[0].radius
-  }).addTo(markerGroup);
+  var circle = addCircle(0);
+
+  function addCircle(index) {
+    return L.circle(angels[index].latlong, {
+      id: index,
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: angels[index].radius
+    }).addTo(markerGroup);
+  }
 
   var prevbtn = document.getElementById("prevBtn");
   var nextbtn = document.getElementById("nextBtn");
@@ -249,11 +254,19 @@
   function displayCircle(prevnext) {
     console.log(circle);
     console.log(prevnext);
-    markerGroup.removeLayer(circle);
+    circleIndex = circle.options.id;
+    console.log(circleIndex)
+    if ((circleIndex + prevnext) = -1) {
+      console.log('begin van de wandeling');
+    } else if ((circleIndex + prevnext) = len(angels)) {
+      console.log('einde van de wandeling');
+    } else {
+      markerGroup.removeLayer(circle);
+      addCircle(circleIndex + prevnext);
+    }
   }
 
 </script>
-
 
 <script>
   // Get the modal
