@@ -56,6 +56,10 @@
         background-color: #FFFFFF;
         color: #000000;
       }
+      .disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
     </style>
     <style>
       /* The Modal (background) */
@@ -172,7 +176,7 @@
       <!-- <button id="locBtn" class="button"><i class="fas fa-map-marker-alt"></i></button> -->
     </span>
     <span style="float:right;">
-      <button id="prevBtn" class="button"><i class="fas fa-step-backward"></i></button>&nbsp;
+      <button id="prevBtn" class="button disabled"><i class="fas fa-step-backward"></i></button>&nbsp;
       <button id="nextBtn" class="button"><i class="fas fa-step-forward"></i></button>
     </span>
   </div>
@@ -251,7 +255,7 @@
     displayCircle(-1);
   }
 
-  nextBtn.onclick = function() {
+  nextbtn.onclick = function() {
     console.log("nextBtn click");
     displayCircle(1);
   }
@@ -269,6 +273,14 @@
       console.log('verder wandelen');
       markerGroup.removeLayer(circle);
       circle = addCircle(circleIndex + prevnext);
+      if (circleIndex + prevnext == 0) {
+        prevbtn.classList.add("disabled");
+      } else if (circleIndex + prevnext - 1 == angels.length) {
+        nextbtn.classList.add("disabled");
+      } else {
+        prevbtn.classList.remove("disabled");
+        nextbtn.classList.remove("disabled");
+      }
     }
   }
 
