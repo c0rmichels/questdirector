@@ -43,7 +43,7 @@
         font-size: 20px;
         margin: 1px 1px;
         cursor: pointer;
-        width: 30px;
+        width: 60px;
       }
       .button:hover {
         background-color: #FFFFFF;
@@ -99,11 +99,14 @@
 <footer class="footer mt-auto py-3 bg-light">
   <div class="container">
     <!-- <span class="text-muted">Place sticky footer content here.</span> -->
-    <button class="button"><i class="fas fa-question"></i></button>&nbsp;
-    <button class="button"><i class="fas fa-map-marker-alt"></i></button>&nbsp;
-    <button class="button"><i class="fas fa-step-backward"></i></button>&nbsp;
-    <button class="button"><i class="fas fa-step-forward"></i></button>
-
+    <span style="float:left;">
+      <button class="button"><i class="fas fa-question"></i></button>
+      <button class="button"><i class="fas fa-map-marker-alt"></i></button>
+    </span>
+    <span style="float:right;">
+      <button class="button"><i class="fas fa-step-backward"></i></button>&nbsp;
+      <button class="button"><i class="fas fa-step-forward"></i></button>
+    </span>
   </div>
 </footer>
 
