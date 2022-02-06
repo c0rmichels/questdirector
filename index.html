@@ -248,7 +248,7 @@
     displayCircle(-1);
   }
 
-  prevbtn.onclick = function() {
+  nextBtn.onclick = function() {
     console.log("nextBtn click");
     displayCircle(1);
   }
@@ -260,7 +260,7 @@
     console.log(circleIndex)
     if ((circleIndex + prevnext) == -1) {
       console.log('begin van de wandeling');
-    } else if ((circleIndex + prevnext) == len(angels)) {
+    } else if ((circleIndex + prevnext) == angels.length) {
       console.log('einde van de wandeling');
     } else {
       console.log('verder wandelen');
