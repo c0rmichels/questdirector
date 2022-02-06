@@ -244,11 +244,13 @@
   var nextbtn = document.getElementById("nextBtn");
 
   prevbtn.onclick = function() {
-    displayCircle(1);
+    console.log("prevBtn click");
+    displayCircle(-1);
   }
 
   prevbtn.onclick = function() {
-    displayCircle(-1);
+    console.log("nextBtn click");
+    displayCircle(1);
   }
 
   function displayCircle(prevnext) {
@@ -261,8 +263,9 @@
     } else if ((circleIndex + prevnext) == len(angels)) {
       console.log('einde van de wandeling');
     } else {
+      console.log('verder wandelen');
       markerGroup.removeLayer(circle);
-      addCircle(circleIndex + prevnext);
+      circle = addCircle(circleIndex + prevnext);
     }
   }
 
