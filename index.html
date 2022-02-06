@@ -165,6 +165,7 @@
     <!-- <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p> -->
     <!-- <p>Use <a href="../examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p> -->
     <div id="map"></div>
+    <div id="loc"></div>
   </div>
 </main>
 
@@ -229,8 +230,15 @@
   var angels = [
     {"latlong": [50.86383, 5.09514], "radius": 25, "desc": "Parking De Bron"},
     {"latlong": [50.86701, 5.09288], "radius": 25, "desc": "Voetbalplein"},
-    {"latlong": [50.86844, 5.09093], "radius": 20, "desc": "Brug"}
+    {"latlong": [50.86844, 5.09093], "radius": 20, "desc": "Brug Roelbeek"},
+    {"latlong": [50.86773, 5.0858], "radius": 20, "desc": "Vijver Groenstraat"},
+    {"latlong": [50.86332, 5.08938], "radius": 25, "desc": "Bungeveld"},
+    {"latlong": [50.85788, 5.09052], "radius": 20, "desc": "Sint-Annastraat"},
+    {"latlong": [50.86234, 5.09653], "radius": 50, "desc": "Dokter"},
+    {"latlong": [50.86383, 5.09514], "radius": 25, "desc": "Parking De Bron"}
   ]
+
+  var locdiv = document.getElementById("loc");
 
   var circle = addCircle(0);
 
@@ -238,6 +246,7 @@
     map.panTo(angels[index].latlong, {
       animate: true
     });
+    locdiv.innerText(angels[index].desc);
     return L.circle(angels[index].latlong, {
       id: index,
       color: 'red',
@@ -249,7 +258,7 @@
 
   var prevbtn = document.getElementById("prevBtn");
   var nextbtn = document.getElementById("nextBtn");
-
+  
   prevbtn.onclick = function() {
     console.log("prevBtn click");
     displayCircle(-1);
