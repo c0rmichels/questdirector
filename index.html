@@ -161,26 +161,6 @@
     <!-- <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p> -->
     <!-- <p>Use <a href="../examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p> -->
     <div id="map"></div>
-    <script>
-      var map = L.map('map').setView([50.86383, 5.09514], 15);
-
-      var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ybWljaGVscyIsImEiOiJja3o5aWc5NDUxc29yMnByeGVxeHEzbDB5In0.Bugq2Lrn7YXyLby-TnuhNA', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-          'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/outdoors-v11',
-        tileSize: 512,
-        zoomOffset: -1
-      }).addTo(map);
-
-      var circle = L.circle([50.86383, 5.09514], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 25
-      }).addTo(map);
-
-    </script>
   </div>
 </main>
 
@@ -228,17 +208,65 @@
 </div>
 
 <script>
+  //map navigation
+  var map = L.map('map').setView([50.86383, 5.09514], 15);
+
+  var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ybWljaGVscyIsImEiOiJja3o5aWc5NDUxc29yMnByeGVxeHEzbDB5In0.Bugq2Lrn7YXyLby-TnuhNA', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/outdoors-v11',
+    tileSize: 512,
+    zoomOffset: -1
+  }).addTo(map);
+
+  var markerGroup = L.layerGroup().addTo(map);
+
+  var angels = [
+    {"latlong": [50.86383, 5.09514], "radius": 25, "desc": "Parking De Bron"},
+    {"latlong": [50.86701, 5.09288], "radius": 25, "desc": "Voetbalplein"},
+    {"latlong": [50.86844, 5.09093], "radius": 20, "desc": "Brug"}
+  ]
+
+  var circle = L.circle(angels[0].latlong, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: angels[0].radius
+  }).addTo(markerGroup);
+
+  var prevbtn = document.getElementById("prevBtn");
+  var nextbtn = document.getElementById("nextBtn");
+
+  prevbtn.onclick = function() {
+    displayCircle(1);
+  }
+
+  prevbtn.onclick = function() {
+    displayCircle(-1);
+  }
+
+  function displayCircle(prevnext) {
+    console.log(circle);
+    console.log(prevnext);
+    markerGroup.removeLayer(circle);
+  }
+
+</script>
+
+
+<script>
   // Get the modal
   var modal = document.getElementById("helpModal");
   
   // Get the button that opens the modal
-  var btn = document.getElementById("helpBtn");
+  var helpbtn = document.getElementById("helpBtn");
   
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
   
   // When the user clicks the button, open the modal 
-  btn.onclick = function() {
+  helpbtn.onclick = function() {
     modal.style.display = "block";
   }
   
