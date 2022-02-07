@@ -248,7 +248,7 @@
     map.panTo(angels[index].latlong, {
       animate: true
     });
-    locdiv.innerText = angels[index].desc;
+    locdiv.innerHTML = angels[index].desc;
     return L.circle(angels[index].latlong, {
       id: index,
       color: 'red',
