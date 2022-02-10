@@ -309,12 +309,25 @@
 
   var locbtn = document.getElementById("locBtn");
 
+  var locPointer;
+
+  function onLocationFound(e) {
+    var radius = e.accuracy;
+    locPointer = L.marker(e.latlng).addTo(markerGroup);
+    // L.circle(e.latlng, radius).addTo(map);
+  }
+  function onLocationError(e) {
+    alert(e.message);
+  }
+  map.on('locationerror', onLocationError);
+  map.on('locationfound', onLocationFound);
+
   locbtn.onclick = function() {
     console.log("locBtn click");
-
     if (locbtn.classList.contains("enabled")) {
       locbtn.classList.remove("enabled");
       map.stopLocate();
+      markerGroup.removeLayer(locPointer);
     } else {
       locbtn.classList.add("enabled");
       map.locate({watch: true});
