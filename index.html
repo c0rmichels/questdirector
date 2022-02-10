@@ -278,10 +278,8 @@
   }
 
   function displayCircle(prevnext) {
-    console.log(circle);
-    console.log(prevnext);
+    // console.log(circle);
     circleIndex = circle.options.id;
-    console.log(circleIndex)
     if ((circleIndex + prevnext) == -1) {
       console.log('begin van de wandeling');
     } else if ((circleIndex + prevnext) == angels.length) {
@@ -308,13 +306,12 @@
   var locPointer = null;
 
   function onLocationFound(e) {
-    console.log(e.latlng + ' ' + e.radius);
+    console.log(e.latlng + ' ' + e.accuracy);
     var radius = e.accuracy;
     if (locPointer != null) {
       markerGroup.removeLayer(locPointer);
     }
     locPointer = L.marker(e.latlng).addTo(markerGroup);
-    // L.circle(e.latlng, radius).addTo(map);
   }
   function onLocationError(e) {
     alert(e.message);
@@ -328,6 +325,7 @@
       locbtn.classList.remove("enabled");
       map.stopLocate();
       markerGroup.removeLayer(locPointer);
+      map.panTo(circle._latlng, {animate: true});
     } else {
       locbtn.classList.add("enabled");
       map.locate({watch: true, setView: true});
