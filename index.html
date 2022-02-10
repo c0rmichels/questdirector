@@ -308,6 +308,7 @@
   var locPointer;
 
   function onLocationFound(e) {
+    console.log(e.latlng);
     var radius = e.accuracy;
     locPointer = L.marker(e.latlng).addTo(markerGroup);
     // L.circle(e.latlng, radius).addTo(map);
@@ -326,7 +327,7 @@
       markerGroup.removeLayer(locPointer);
     } else {
       locbtn.classList.add("enabled");
-      map.locate({watch: true});
+      map.locate({watch: true, setView: true});
     }
   }
 
