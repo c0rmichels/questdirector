@@ -305,11 +305,14 @@
 
   var locbtn = document.getElementById("locBtn");
 
-  var locPointer;
+  var locPointer = null;
 
   function onLocationFound(e) {
-    console.log(e.latlng);
+    console.log(e.latlng + ' ' + e.radius);
     var radius = e.accuracy;
+    if (locPointer != null) {
+      markerGroup.removeLayer(locPointer);
+    }
     locPointer = L.marker(e.latlng).addTo(markerGroup);
     // L.circle(e.latlng, radius).addTo(map);
   }
