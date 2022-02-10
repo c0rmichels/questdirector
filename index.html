@@ -220,26 +220,6 @@
 </div>
 
 <script>
-
-  //
-
-  var locbtn = document.getElementById("locBtn");
-
-  locbtn.onclick = function() {
-    console.log("locBtn click");
-
-    if (locbtn.classList.contains("enabled")) {
-      locbtn.classList.remove("enabled");
-    } else {
-      locbtn.classList.add("enabled");
-    }
-  }
-
-  // map.locate({setView: true, maxZoom: 16});
-
-</script>
-
-<script>
   //map navigation
   var map = L.map('map').setView([50.86383, 5.09514], 15);
 
@@ -322,6 +302,27 @@
   }
 
 </script>
+
+<script>
+
+  //
+
+  var locbtn = document.getElementById("locBtn");
+
+  locbtn.onclick = function() {
+    console.log("locBtn click");
+
+    if (locbtn.classList.contains("enabled")) {
+      locbtn.classList.remove("enabled");
+      map.stopLocate();
+    } else {
+      locbtn.classList.add("enabled");
+      map.locate({watch: true});
+    }
+  }
+
+</script>
+
 
 <script>
   // Get the modal
