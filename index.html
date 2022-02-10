@@ -57,6 +57,12 @@
         background-color: #FFFFFF;
         color: #000000;
       }
+
+      .enabled {
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+
       .disabled {
         opacity: 0.6;
         cursor: not-allowed;
@@ -175,7 +181,7 @@
     <!-- <span class="text-muted">Place sticky footer content here.</span> -->
     <span style="float:left;">
       <button id="helpBtn" class="button"><i class="fas fa-question"></i></button>
-      <!-- <button id="locBtn" class="button"><i class="fas fa-map-marker-alt"></i></button> -->
+      <button id="locBtn" class="button"><i class="fas fa-map-marker-alt"></i></button>
     </span>
     <span style="float:right;">
       <button id="prevBtn" class="button disabled"><i class="fas fa-step-backward"></i></button>&nbsp;
@@ -202,7 +208,7 @@
         Verzamel alle letters op heel de wandeling.
       </p>
       <p>Op het einde kan je met alle letters een woord vormen. Vul dit woord in op het volgende
-        formulier en na afloop van de wandeling loten we enkel winnaars uit de schoolkinderen die
+        formulier en na afloop van de wandeling loten we enkele winnaars uit de schoolkinderen die
         hebben meegedaan.
       </p>
     </div>
@@ -212,6 +218,26 @@
   </div>
 
 </div>
+
+<script>
+
+  //
+
+  var locbtn = document.getElementById("locBtn");
+
+  locbtn.onclick = function() {
+    console.log("locBtn click");
+
+    if (locbtn.contains("enabled")) {
+      locbtn.classList.remove("enabled");
+    } else {
+      locbtn.classList.add("enabled");
+    }
+  }
+
+  // map.locate({setView: true, maxZoom: 16});
+
+</script>
 
 <script>
   //map navigation
