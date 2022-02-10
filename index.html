@@ -328,7 +328,7 @@
       map.panTo(circle._latlng, {animate: true});
     } else {
       locbtn.classList.add("enabled");
-      map.locate({watch: true, setView: true});
+      map.locate({watch: true, setView: true, maxZoom: map._zoom});
     }
   }
 
