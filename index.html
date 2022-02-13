@@ -168,7 +168,7 @@
 <!-- Begin page content -->
 <main class="flex-shrink-0">
   <div class="container">
-    <h1 class="mt-5">Bronwandeling</h1>
+    <h1 class="mt-5">Hartjeswandeling</h1>
     <!-- <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p> -->
     <!-- <p>Use <a href="../examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p> -->
     <div id="map"></div>
@@ -204,14 +204,14 @@
         pijltje <i class="fas fa-step-forward"></i> klikt, dan krijg je het
         volgende rode cirkeltje te zien en weet je waar je dan weer heen moet.
       </p>
-      <p>Ter hoogte van elk rood cirkeltje vind je ergens een "engelhartje".
+      <p>Ter hoogte van elk rood cirkeltje (behalve aan de school zelf) vind je ergens een "engelhartje".
         Op dat hartje staat een letter. Verzamel alle letters op heel de wandeling.
       </p>
       <p>Op het einde kan je met alle letters een woord vormen. Heb je het woord gevonden ? 
-        Prachtig ! Vul dit woord in op het <a href="bronwandeling.pdf">volgende formulier</a>
-        en stop het in de bus aan de schoolpoort.
-        Deelnemen kan van zondag 13 februari tot en met zondag 6 maart. Na afloop loten we
-        een klas uit als winnaar.
+        Prachtig ! Vul dit woord in op het formulier dat je van school hebt meegekregen
+        en stop het in de rode bus aan de schoolpoort.
+        Deelnemen kan van maandag 14 februari tot en met zondag 6 maart. De klas met de meeste goede 
+        antwoorden in verhouding tot het aantal leerlingen wint de grote prijs.
       </p>
       <p>In deze periode kan het nog behoorlijk slecht weer zijn en stukken van de 
         wandeling lopen over aarden wegen. Stevige waterdichte schoenen of laarsjes waarmee
@@ -241,18 +241,18 @@
   var markerGroup = L.layerGroup().addTo(map);
 
   var angels = [
-    {"latlong": [50.86381, 5.09486], "radius": 25, "desc": "Parking Basisschool De Bron<br>Een wandeling van een kleine 5 km.<br>Gebruik <i class=\"fas fa-question\"></i> om meer te weten te komen."},
-    {"latlong": [50.86560, 5.09471], "radius": 25, "desc": ""},
+    {"latlong": [50.86381, 5.09486], "radius": 25, "desc": "Parking Basisschool De Bron<br>Hier start de hartjeswandeling van een kleine 5 km.<br>Gebruik <i class=\"fas fa-question\"></i> om meer te weten te komen."},
+    {"latlong": [50.86560, 5.09471], "radius": 30, "desc": ""},
     {"latlong": [50.86892, 5.09094], "radius": 25, "desc": ""},
     {"latlong": [50.86775, 5.08583], "radius": 25, "desc": ""},
     {"latlong": [50.86679, 5.08573], "radius": 25, "desc": ""},
     {"latlong": [50.86653, 5.08717], "radius": 25, "desc": ""},
     {"latlong": [50.86459, 5.08708], "radius": 25, "desc": ""},
     {"latlong": [50.86319, 5.08980], "radius": 25, "desc": ""},
-    {"latlong": [50.86178, 5.08738], "radius": 25, "desc": ""},
-    {"latlong": [50.85800, 5.09110], "radius": 25, "desc": ""},
+    {"latlong": [50.86178, 5.08738], "radius": 30, "desc": ""},
+    {"latlong": [50.85800, 5.09110], "radius": 30, "desc": ""},
     {"latlong": [50.86226, 5.09654], "radius": 25, "desc": ""},
-    {"latlong": [50.86381, 5.09486], "radius": 25, "desc": "Parking Basisschool De Bron<br>De wandeling is afgelopen. Vergeet het woord niet op te schrijven en in de bus aan de schoolpoort te stoppen."}
+    {"latlong": [50.86381, 5.09486], "radius": 25, "desc": "En we zijn aan het einde van de wandeling.<br> We hope dat je ervan genoten hebt.<br>Vergeet het woord niet op te schrijven en in de rode bus aan de schoolpoort te stoppen."}
   ]
 
   var locdiv = document.getElementById("loc");
